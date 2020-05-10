@@ -28,6 +28,10 @@ variable "machine_type" {
   default = "n1-standard-2"
 }
 
+variable "master_startup_script" {
+  type = string
+}
+
 variable "num_instances" {
   type = number
   default = 2
@@ -55,6 +59,10 @@ variable "source_image" {
     family  = "ubuntu-1804-lts"
     project = "ubuntu-os-cloud"
   }
+}
+
+variable "worker_startup_script" {
+  type = string
 }
 
 variable "zone" {

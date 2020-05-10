@@ -59,6 +59,8 @@ resource "google_compute_instance" "master_vm_instance" {
     sshKeys = "${var.gce_ssh_user}:${file(var.gce_ssh_pub_key_file)}"
   }
 
+  metadata_startup_script = var.master_startup_script
+
   network_interface {
     subnetwork = module.network.subnets_names[0]
     access_config {
@@ -93,6 +95,8 @@ resource "google_compute_instance" "worker_vm_instance" {
   metadata = {
     sshKeys = "${var.gce_ssh_user}:${file(var.gce_ssh_pub_key_file)}"
   }
+
+  metadata_startup_script = var.worker_startup_script
 
   network_interface {
     subnetwork = module.network.subnets_names[0]

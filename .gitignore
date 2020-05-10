@@ -1,3 +1,6 @@
+materials/
+notes/
+
 # Local .terraform directories
 **/.terraform/*
 
